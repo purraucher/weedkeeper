@@ -7,7 +7,10 @@ public enum Msg {
 	LabelOk("label.ok"),
 	LabelCancel("label.cancel"),
 	FormLabelName("form.label.name"),
-	FormLabelBreeder("form.label.breeder");
+	FormLabelBreeder("form.label.breeder"),
+	SowDialogTitle("dialog.sow.title"),
+	FormLabelNumSeeds("form.label.numSeeds"),
+	FormLabelStrain("form.label.strain");
 	final private String key;
 	private Msg(String key) {
 		this.key = key;

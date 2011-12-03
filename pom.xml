@@ -70,6 +70,7 @@
 					<include>ebean.properties</include>
 					<include>lang/*.properties</include>
 					<include>schema.sql</include>
+					<include>config-defaults.properties</include>
 				</includes>
 			</resource>
 		</resources>

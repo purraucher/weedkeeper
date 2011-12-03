@@ -11,6 +11,7 @@ import net.miginfocom.swing.MigLayout;
 import weedkeeper.Const;
 import weedkeeper.Db;
 import weedkeeper.ui.actions.CreateStrainAction;
+import weedkeeper.ui.actions.SowAction;
 import weedkeeper.ui.views.StrainTree;
 
 public class MainFrame extends JFrame {
@@ -40,5 +41,9 @@ public class MainFrame extends JFrame {
 		newMenu.add(newStrain);
 		mbar.add(newMenu);
 		newStrain.addActionListener(new CreateStrainAction(strainTree, db, this));
+		JMenu actions = new JMenu("Actions");
+		mbar.add(actions);
+		JMenuItem sow = new JMenuItem(new SowAction(db, this));
+		actions.add(sow);
 	}
 }

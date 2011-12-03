@@ -17,7 +17,6 @@ CREATE TABLE strain (
 
 CREATE TABLE grow_period (
 	id INTEGER NOT NULL auto_increment,
-	type VARCHAR(255) NOT NULL,
 	start DATE NOT NULL,
 	duration INTEGER,
 	stage VARCHAR(255) NOT NULL,
@@ -27,7 +26,7 @@ CREATE TABLE grow_period (
 CREATE TABLE plant (
 	id INTEGER NOT NULL auto_increment,
 	strain_id INTEGER NOT NULL,
-	mother_id INTEGER NOT NULL,
+	mother_id INTEGER,
 	period_id INTEGER NOT NULL,
 	CONSTRAINT pk_plant PRIMARY KEY (id),
 	CONSTRAINT fk_strain FOREIGN KEY (strain_id)

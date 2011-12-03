@@ -6,6 +6,7 @@ import java.util.Properties;
 public enum Const {
 	Name("name"),
 	DefaultLanguage("lang.default"),
+	ConfigFilename("config.filename"),
 	Version("version");
 	static final Properties props = new Properties();
 	static {
