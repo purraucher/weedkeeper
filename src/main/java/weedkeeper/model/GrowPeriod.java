@@ -13,18 +13,11 @@ import lombok.Setter;
 
 import org.joda.time.DateTime;
 
-import com.avaje.ebean.annotation.EnumValue;
 
 @Getter
 @Setter
 @Entity
-public class GrowCycle {
-	public static enum Type {
-		@EnumValue("veg")
-		Vegetative,
-		@EnumValue("bloom")
-		Flowering
-	}
+public class GrowPeriod {
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
@@ -32,4 +25,5 @@ public class GrowCycle {
 	private Integer duration;
 	@OneToMany
 	private List<Plant> plants;
+	private GrowthStage stage;
 }

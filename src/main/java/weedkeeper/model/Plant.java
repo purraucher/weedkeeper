@@ -22,5 +22,5 @@ public class Plant {
 	@OneToOne
 	private Plant mother;
 	@ManyToOne
-	private GrowCycle growCycle;
+	private GrowPeriod period;
 }
