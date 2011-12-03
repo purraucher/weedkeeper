@@ -21,11 +21,13 @@ import org.jdesktop.swingx.JXErrorPane;
 import org.jdesktop.swingx.error.ErrorInfo;
 
 import weedkeeper.Const;
+import weedkeeper.Db;
 import weedkeeper.Messages;
 import weedkeeper.Msg;
 
 import com.avaje.ebean.EbeanServer;
 import com.avaje.ebean.EbeanServerFactory;
+import com.avaje.ebean.LogLevel;
 import com.avaje.ebean.config.DataSourceConfig;
 import com.avaje.ebean.config.ServerConfig;
 
@@ -102,9 +104,9 @@ public class SwingLauncher {
 		final File dbFile = new File(String.format("%s.h2.db", Const.Name.get()));
 		log.info(String.format("initializing database: %s", dbFile.getAbsolutePath()));
 
-		final EbeanServer db = initDb(!dbFile.exists() || dev);
+		final Db db = initDb(!dbFile.exists() || dev);
 
-		MainFrame mf = new MainFrame();
+		MainFrame mf = new MainFrame(db);
 		mf.setSize(800, 500);
 		mf.setLocationRelativeTo(null);
 		mf.setDefaultCloseOperation(MainFrame.EXIT_ON_CLOSE);
@@ -130,9 +132,11 @@ public class SwingLauncher {
 		return opts;
 	}
 
-	static EbeanServer initDb(boolean setup) throws IOException {
+	static Db initDb(boolean setup) throws IOException {
 		ServerConfig sc = new ServerConfig();
 		sc.setName(Const.Name.get());
+		sc.setLoggingToJavaLogger(true);
+		sc.setLoggingLevel(LogLevel.SQL);
 
 		DataSourceConfig ds = new DataSourceConfig();
 		ds.setDriver("org.h2.Driver");
@@ -162,7 +166,7 @@ public class SwingLauncher {
 			}
 		}
 
-		return db;
+		return new Db(db);
 	}
 
 	static void initMessages(String langOverride) {

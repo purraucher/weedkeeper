@@ -26,7 +26,7 @@ public class GrowCycle {
 		Flowering
 	}
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	private DateTime start;
 	private Integer duration;

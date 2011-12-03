@@ -15,7 +15,7 @@ import lombok.Setter;
 @Getter
 public class Plant {
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Long id;
 	@OneToOne
 	private Strain strain;

@@ -5,7 +5,9 @@ public enum Msg {
 	ErrorDialogMsg("dialog.error.message"),
 	CreateStrainDialogTitle("dialog.createStrain.title"),
 	LabelOk("label.ok"),
-	LabelCancel("label.cancel");
+	LabelCancel("label.cancel"),
+	FormLabelName("form.label.name"),
+	FormLabelBreeder("form.label.breeder");
 	final private String key;
 	private Msg(String key) {
 		this.key = key;
