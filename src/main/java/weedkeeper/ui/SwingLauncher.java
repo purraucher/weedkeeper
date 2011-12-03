@@ -52,7 +52,7 @@ public class SwingLauncher {
 	public static void main(String[] args) {
 		try {
 			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-//			Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.get());
+			Thread.setDefaultUncaughtExceptionHandler(ExceptionHandler.get());
 			launch(args);
 		}
 		catch (ParseException e) {
