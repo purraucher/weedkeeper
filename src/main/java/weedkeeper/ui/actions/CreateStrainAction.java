@@ -10,13 +10,16 @@ import weedkeeper.model.Breeder;
 import weedkeeper.model.Strain;
 import weedkeeper.ui.AbstractDialog.DefaultChoice;
 import weedkeeper.ui.CreateStrainDialog;
+import weedkeeper.ui.views.StrainTree;
 
 public class CreateStrainAction extends AbstractAction {
 	private final Window parent;
 	private final Db db;
-	public CreateStrainAction(Db db, Window parent) {
+	private final StrainTree strainTree;
+	public CreateStrainAction(StrainTree strainTree, Db db, Window parent) {
 		this.db = db;
 		this.parent = parent;
+		this.strainTree = strainTree;
 	}
 
 	@Override
@@ -32,7 +35,7 @@ public class CreateStrainAction extends AbstractAction {
 			}
 			s.setBreeder(b);
 			db.save(s);
+			strainTree.add(s);
 		}
 	}
-
 }

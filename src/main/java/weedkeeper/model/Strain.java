@@ -20,4 +20,8 @@ public class Strain {
 	@OneToOne
 	private Breeder breeder;
 	private String name;
+
+	public String toString() {
+		return name;
+	}
 }
