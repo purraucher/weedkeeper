@@ -22,10 +22,10 @@ public class SowDialog extends AbstractDialog<AbstractDialog.DefaultChoice> {
 		numSeeds = new JTextField();
 
 		content.add(new JLabel(Msg.FormLabelStrain.get()));
-		content.add(strain, "wrap, wmin 200, w 100%");
+		content.add(strain, "wrap, w 100%, wmin 200");
 
 		content.add(new JLabel(Msg.FormLabelNumSeeds.get()));
-		content.add(numSeeds, "w 30!");
+		content.add(numSeeds, "w 50!");
 	}
 	public Strain getStrain() {
 		return (Strain)strain.getSelectedItem();
